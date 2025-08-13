@@ -158,4 +158,44 @@
       <h2>Cadastre-se para participar</h2>
       <form id="formCadastro">
         <label for="nome">Nome completo</label>
-        <input type="tex
+        <input type="text" id="nome" placeholder="Seu nome completo" required />
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="seu@email.com" required />
+        
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Itens para Leilão (simulados)</h2>
+      <div class="items">
+        <div class="item-card">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80" alt="Relógio Antigo" class="item-image" />
+          <div class="item-info">
+            <div class="item-title">Relógio Antigo</div>
+            <div class="item-desc">Relógio de bolso clássico dos anos 50.</div>
+            <div class="item-price">Lance mínimo: R$ 100,00</div>
+          </div>
+        </div>
+        <div class="item-card">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Quadro Pintura" class="item-image" />
+          <div class="item-info">
+            <div class="item-title">Quadro Pintura</div>
+            <div class="item-desc">Obra moderna em tela, assinada pelo artista.</div>
+            <div class="item-price">Lance mínimo: R$ 300,00</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<script>
+  document.getElementById('formCadastro').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Cadastro simulado! Backend ainda não conectado.');
+  });
+</script>
+
+</body>
+</html>

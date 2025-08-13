@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Leilão Online</title>
-<link rel="stylesheet" href="styles.css">
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+  h1 { text-align: center; }
+  #content { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+  label, input, button { display: block; margin: 10px 0; width: 100%; }
+  button { padding: 10px; background: #007BFF; color: white; border: none; cursor: pointer; }
+  button:hover { background: #0056b3; }
+  .item { border: 1px solid #ddd; padding: 10px; margin: 10px 0; }
+</style>
 </head>
 <body>
-<h1>Plataforma de Leilão</h1>
-<div id="auction-container"></div>
-<script src="app.js"></script>
+  <h1>Bem-vindo ao Leilão Online</h1>
+  <div id="content">
+    <h2>Cadastre-se para participar</h2>
+    <form id="formCadastro">
+      <label for="nome">Nome completo</label>
+      <input type="text" id="nome" required />
+      <label for="email">Email</label>
+      <input type="email" id="email" required />
+      <button type="submit">Cadastrar</button>
+    </form>
+    <hr />
+    <h2>Itens para Leilão (simulados)</h2>
+    <div class="item">
+      <strong>Item 1:</strong> Relógio Antigo<br />
+      Lance mínimo: R$ 100
+    </div>
+    <div class="item">
+      <strong>Item 2:</strong> Quadro Pintura<br />
+      Lance mínimo: R$ 300
+    </div>
+  </div>
+
+<script>
+  document.getElementById('formCadastro').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Cadastro simulado! Backend ainda não conectado.');
+  });
+</script>
 </body>
 </html>

@@ -1,180 +1,300 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" >
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Leilão Online Moderno</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
-<style>
-  /* Reset */
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leilão Online - Itens Disponíveis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
-  body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #222;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-  header {
-    position: sticky;
-    top: 0;
-    background: rgba(255 255 255 / 0.95);
-    backdrop-filter: saturate(180%) blur(20px);
-    box-shadow: 0 2px 12px rgb(0 0 0 / 0.1);
-    padding: 1rem 2rem;
-    font-weight: 700;
-    font-size: 1.8rem;
-    text-align: center;
-    color: #4b0082;
-    z-index: 100;
-  }
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255 255 255 / 0.95);
+      backdrop-filter: saturate(180%) blur(20px);
+      box-shadow: 0 2px 12px rgb(0 0 0 / 0.1);
+      padding: 1rem 2rem;
+      font-weight: 700;
+      font-size: 1.8rem;
+      text-align: center;
+      color: #4b0082;
+      z-index: 100;
+    }
 
-  main {
-    flex-grow: 1;
-    max-width: 960px;
-    margin: 3rem auto;
-    padding: 0 1rem 3rem;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgb(0 0 0 / 0.1);
-  }
-
-  h2 {
-    font-weight: 600;
-    color: #4b0082;
-    margin-bottom: 1rem;
-  }
-
-  form {
-    max-width: 400px;
-    margin-bottom: 3rem;
-  }
-
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #555;
-  }
-
-  input[type="text"],
-  input[type="email"] {
-    width: 100%;
-    padding: 12px 16px;
-    font-size: 1rem;
-    border-radius: 10px;
-    border: 1.5px solid #ccc;
-    transition: border-color 0.3s;
-    outline-offset: 2px;
-  }
-
-  input[type="text"]:focus,
-  input[type="email"]:focus {
-    border-color: #764ba2;
-    outline: none;
-    box-shadow: 0 0 8px #764ba2aa;
-  }
-
-  button {
-    margin-top: 1.2rem;
-    width: 100%;
-    background: linear-gradient(90deg, #764ba2, #667eea);
-    border: none;
-    padding: 14px 0;
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 6px 15px #764ba2aa;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px #667eeaaa;
-  }
-
-  .items {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-  }
-
-  .item-card {
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 8px 24px rgb(0 0 0 / 0.1);
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .item-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 40px rgb(0 0 0 / 0.15);
-  }
-
-  .item-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    display: block;
-    border-bottom: 3px solid #764ba2;
-  }
-
-  .item-info {
-    padding: 16px 20px;
-  }
-
-  .item-title {
-    font-weight: 700;
-    font-size: 1.3rem;
-    color: #4b0082;
-    margin-bottom: 8px;
-  }
-
-  .item-desc {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 12px;
-    min-height: 48px;
-  }
-
-  .item-price {
-    font-weight: 700;
-    font-size: 1.15rem;
-    color: #667eea;
-  }
-
-  footer {
-    background: #4b0082;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-    font-weight: 500;
-    font-size: 0.9rem;
-  }
-
-  /* Responsive */
-  @media (max-width: 600px) {
     main {
-      margin: 1.5rem 1rem 2rem;
-      padding: 20px;
+      flex-grow: 1;
+      max-width: 960px;
+      margin: 3rem auto;
+      padding: 0 1rem 3rem;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgb(0 0 0 / 0.1);
+    }
+
+    h2 {
+      font-weight: 600;
+      color: #4b0082;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    /* Cadastro */
+    #cadastro {
+      max-width: 400px;
+      margin: 0 auto 3rem;
+      padding: 1rem 2rem;
+      border: 1px solid #ccc;
+      border-radius: 14px;
+      background: #f9f9f9;
+    }
+
+    #cadastro label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    #cadastro input[type="text"],
+    #cadastro input[type="email"] {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1.5px solid #ccc;
+      transition: border-color 0.3s;
+      outline-offset: 2px;
+      margin-bottom: 1rem;
+    }
+
+    #cadastro input[type="text"]:focus,
+    #cadastro input[type="email"]:focus {
+      border-color: #764ba2;
+      outline: none;
+      box-shadow: 0 0 8px #764ba2aa;
+    }
+
+    #cadastro button {
+      margin-top: 1.2rem;
+      width: 100%;
+      background: linear-gradient(90deg, #764ba2, #667eea);
+      border: none;
+      padding: 14px 0;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 6px 15px #764ba2aa;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    #cadastro button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px #667eeaaa;
+    }
+
+    /* Itens */
+    .items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .item-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgb(0 0 0 / 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .item-card:hover {
-      transform: none;
-      box-shadow: 0 8px 24px rgb(0 0 0 / 0.1);
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgb(0 0 0 / 0.15);
     }
-  }
-</style>
+
+    .item-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 3px solid #764ba2;
+    }
+
+    .item-info {
+      padding: 16px 20px;
+      flex-grow: 1;
+    }
+
+    .item-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #4b0082;
+      margin-bottom: 8px;
+    }
+
+    .item-desc {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 12px;
+      min-height: 48px;
+    }
+
+    .item-price {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #667eea;
+      margin-bottom: 12px;
+    }
+
+    .btn-lance {
+      background: linear-gradient(90deg, #764ba2, #667eea);
+      border: none;
+      padding: 12px 0;
+      border-radius: 0 0 20px 20px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    .btn-lance:hover {
+      background-color: #5a3391;
+    }
+
+    /* Modal */
+    .modal-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 500;
+    }
+
+    .modal-bg.active {
+      display: flex;
+    }
+
+    .modal {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    .modal h3 {
+      margin-top: 0;
+      color: #4b0082;
+    }
+
+    .modal label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #555;
+    }
+
+    .modal input[type="number"] {
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1.5px solid #ccc;
+      margin-bottom: 1rem;
+      outline-offset: 2px;
+      transition: border-color 0.3s;
+    }
+
+    .modal input[type="number"]:focus {
+      border-color: #764ba2;
+      outline: none;
+      box-shadow: 0 0 8px #764ba2aa;
+    }
+
+    .modal button {
+      background: #4b0082;
+      color: white;
+      border: none;
+      padding: 12px 0;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 10px;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .modal button:hover {
+      background-color: #3a006b;
+    }
+
+    .modal .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      background: transparent;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #aaa;
+      transition: color 0.3s;
+    }
+
+    .modal .close-btn:hover {
+      color: #444;
+    }
+
+    footer {
+      background: #4b0082;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      main {
+        margin: 1.5rem 1rem 2rem;
+        padding: 20px;
+      }
+
+      .item-card:hover {
+        transform: none;
+        box-shadow: 0 8px 24px rgb(0 0 0 / 0.1);
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -183,7 +303,7 @@
 </header>
 
 <main>
-  <section>
+  <section id="cadastro">
     <h2>Cadastre-se para participar</h2>
     <form id="formCadastro">
       <label for="nome">Nome completo</label>
@@ -197,46 +317,9 @@
   </section>
 
   <section>
-    <h2>Itens para Leilão (simulados)</h2>
-    <div class="items">
-      <div class="item-card">
-        <img
-          src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80"
-          alt="Relógio Antigo"
-          class="item-image"
-        />
-        <div class="item-info">
-          <div class="item-title">Relógio Antigo</div>
-          <div class="item-desc">Relógio de bolso clássico dos anos 50.</div>
-          <div class="item-price">Lance mínimo: R$ 100,00</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <img
-          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
-          alt="Quadro Pintura"
-          class="item-image"
-        />
-        <div class="item-info">
-          <div class="item-title">Quadro Pintura</div>
-          <div class="item-desc">Obra moderna em tela, assinada pelo artista.</div>
-          <div class="item-price">Lance mínimo: R$ 300,00</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <img
-          src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400&q=80"
-          alt="Máquina Fotográfica Vintage"
-          class="item-image"
-        />
-        <div class="item-info">
-          <div class="item-title">Máquina Fotográfica Vintage</div>
-          <div class="item-desc">Câmera analógica em excelente estado.</div>
-          <div class="item-price">Lance mínimo: R$ 250,00</div>
-        </div>
-      </div>
+    <h2>Itens para Leilão Disponíveis</h2>
+    <div class="items" id="itemsContainer">
+      <!-- Itens serão inseridos por JS -->
     </div>
   </section>
 </main>
@@ -245,12 +328,120 @@
   &copy; 2025 Leilão Online. Todos os direitos reservados.
 </footer>
 
+<!-- Modal de lance -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="close-btn" id="modalCloseBtn" aria-label="Fechar modal">&times;</button>
+    <h3 id="modalTitle">Dar Lance</h3>
+    <form id="formLance">
+      <label for="valorLance">Valor do lance (R$)</label>
+      <input type="number" id="valorLance" min="1" step="1" required />
+      <button type="submit">Enviar Lance</button>
+    </form>
+  </div>
+</div>
+
 <script>
+  // Dados simulados dos itens para leilão
+  const itensLeilao = [
+    {
+      id: 1,
+      titulo: "Relógio Antigo",
+      descricao: "Relógio de bolso clássico dos anos 50.",
+      lanceMinimo: 100,
+      imagem: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+      id: 2,
+      titulo: "Quadro Pintura",
+      descricao: "Obra moderna em tela, assinada pelo artista.",
+      lanceMinimo: 300,
+      imagem: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+      id: 3,
+      titulo: "Máquina Fotográfica Vintage",
+      descricao: "Câmera analógica em excelente estado.",
+      lanceMinimo: 250,
+      imagem: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+      id: 4,
+      titulo: "Guitarra Clássica",
+      descricao: "Instrumento acústico para amantes da música.",
+      lanceMinimo: 450,
+      imagem: "https://images.unsplash.com/photo-1511376777868-611b54f68947?auto=format&fit=crop&w=400&q=80"
+    }
+  ];
+
+  const itemsContainer = document.getElementById('itemsContainer');
+
+  // Função para criar cards dinamicamente
+  function carregarItens() {
+    itensLeilao.forEach(item => {
+      const card = document.createElement('div');
+      card.classList.add('item-card');
+      card.innerHTML = `
+        <img src="${item.imagem}" alt="${item.titulo}" class="item-image" />
+        <div class="item-info">
+          <div class="item-title">${item.titulo}</div>
+          <div class="item-desc">${item.descricao}</div>
+          <div class="item-price">Lance mínimo: R$ ${item.lanceMinimo.toFixed(2)}</div>
+        </div>
+        <button class="btn-lance" data-id="${item.id}">Dar Lance</button>
+      `;
+      itemsContainer.appendChild(card);
+    });
+  }
+
+  carregarItens();
+
+  // Modal e lance
+  const modalBg = document.getElementById('modalBg');
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const formLance = document.getElementById('formLance');
+  const valorLanceInput = document.getElementById('valorLance');
+  let lanceAtualItemId = null;
+
+  // Abrir modal no botão "Dar Lance"
+  document.querySelectorAll('.btn-lance').forEach(button => {
+    button.addEventListener('click', () => {
+      lanceAtualItemId = button.getAttribute('data-id');
+      const item = itensLeilao.find(i => i.id == lanceAtualItemId);
+      valorLanceInput.value = item.lanceMinimo;
+      valorLanceInput.min = item.lanceMinimo;
+      modalBg.classList.add('active');
+      valorLanceInput.focus();
+    });
+  });
+
+  // Fechar modal
+  modalCloseBtn.addEventListener('click', () => {
+    modalBg.classList.remove('active');
+    lanceAtualItemId = null;
+    formLance.reset();
+  });
+
+  // Enviar lance (simulado)
+  formLance.addEventListener('submit', e => {
+    e.preventDefault();
+    const valor = Number(valorLanceInput.value);
+    const item = itensLeilao.find(i => i.id == lanceAtualItemId);
+    if (valor < item.lanceMinimo) {
+      alert(`O lance deve ser no mínimo R$ ${item.lanceMinimo.toFixed(2)}`);
+      return;
+    }
+    alert(`Lance de R$ ${valor.toFixed(2)} enviado para o item "${item.titulo}".\n(Backend não conectado, simulação apenas)`);
+    modalBg.classList.remove('active');
+    lanceAtualItemId = null;
+    formLance.reset();
+  });
+
+  // Cadastro simulado
   document.getElementById('formCadastro').addEventListener('submit', e => {
     e.preventDefault();
     alert('Cadastro simulado! Backend ainda não conectado.');
   });
 </script>
-
 </body>
 </html>
